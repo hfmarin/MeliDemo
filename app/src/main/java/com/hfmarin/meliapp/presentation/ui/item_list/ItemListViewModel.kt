@@ -1,6 +1,5 @@
 package com.hfmarin.meliapp.presentation.ui.item_list
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
@@ -38,14 +37,10 @@ constructor(
 
     fun onTriggerEvent(event: ItemListEvent) {
         viewModelScope.launch {
-            try {
-                when (event) {
-                    is NewSearchEvent -> {
-                        newSearch()
-                    }
+            when (event) {
+                is NewSearchEvent -> {
+                    newSearch()
                 }
-            } catch (e: Exception) {
-                Log.e(ItemListViewModel::class.simpleName, "error on event trigger" + e.message)
             }
         }
     }

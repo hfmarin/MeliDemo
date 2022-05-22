@@ -1,6 +1,5 @@
 package com.hfmarin.meliapp.presentation.ui.item
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
@@ -31,14 +30,10 @@ constructor(
 
     fun onTriggerEvent(itemEvent: ItemEvent) {
         viewModelScope.launch {
-            try {
-                when (itemEvent) {
-                    is ItemEvent.GetItemEvent -> {
-                        getItem(itemEvent.id)
-                    }
+            when (itemEvent) {
+                is ItemEvent.GetItemEvent -> {
+                    getItem(itemEvent.id)
                 }
-            } catch (e: Exception) {
-                Log.e(ItemViewModel::class.simpleName, e.message ?: "Error getting Item")
             }
         }
     }
