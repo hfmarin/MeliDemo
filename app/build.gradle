@@ -1,0 +1,97 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 32
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.hfmarin.melidemo"
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+    composeOptions {
+
+        def kotlin_compiler_extension_version = "1.2.0-beta02"
+        kotlinCompilerExtensionVersion kotlin_compiler_extension_version
+    }
+    buildFeatures {
+        compose true
+    }
+}
+
+dependencies {
+
+    def app_compat = "1.4.1"
+    def material = "1.6.0"
+    def constraint = "2.1.4"
+    def core = "1.7.0"
+    implementation "androidx.core:core-ktx:$core"
+    implementation "androidx.appcompat:appcompat:$app_compat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint"
+
+    def androidx_ui = "1.0.0-alpha07"
+    implementation "androidx.ui:ui-tooling:$androidx_ui"
+    def compose_constraint = "1.0.1"
+    implementation "androidx.constraintlayout:constraintlayout-compose:$compose_constraint"
+
+
+    def compose = "1.1.1"
+    implementation "androidx.compose.ui:ui:$compose"
+    implementation "androidx.compose.foundation:foundation:$compose"
+    implementation "androidx.compose.runtime:runtime-livedata:$compose"
+    implementation "androidx.compose.runtime:runtime-rxjava2:$compose"
+    implementation "androidx.compose.material:material:$compose"
+    implementation "androidx.compose.material:material-icons-core:$compose"
+    implementation "androidx.compose.material:material-icons-extended:$compose"
+    implementation "androidx.compose.animation:animation:$compose"
+
+
+    def compose_activity = "1.4.0"
+    implementation "androidx.activity:activity-compose:$compose_activity"
+
+    def nav_version = "2.4.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    def glide_version = "4.12.0"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+
+
+}

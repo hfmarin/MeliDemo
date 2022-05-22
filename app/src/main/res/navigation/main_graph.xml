@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/itemListFragment">
+
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="com.hfmarin.meliapp.presentation.ui.item_list.ItemListFragment"
+        android:label="ItemListFragment" >
+        <action
+            android:id="@+id/viewItem"
+            app:destination="@id/itemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.hfmarin.meliapp.presentation.ui.item.ItemFragment"
+        android:label="ItemFragment" />
+</navigation>
