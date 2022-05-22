@@ -49,7 +49,7 @@ constructor(
         error.value = ""
         loading.value = true
         resetSearchState()
-        delay(2000)
+        delay(2000) // delay to show the shimmer
         val result = repository.search(query = query.value)
         if (result.isSuccess) {
             result.getOrNull()?.let { items.value = it }
